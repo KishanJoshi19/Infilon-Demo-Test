@@ -8,7 +8,6 @@ export class TenforceDashboardPage {
     }
 
     //Actions mention in this section
-     // ----- Actions -----
   async goToHome(BASE_URL: string | undefined) {
     const url = BASE_URL || "https://www.tenforce.com/";
     await this.page.goto(url);
@@ -35,9 +34,9 @@ export class TenforceDashboardPage {
     await jobOpenings.click();
   }
 
-  // ----- Assertions -----
+  // Navigation and page stability
   async verifyHomePageTitle() {
-    await this.page.waitForLoadState('networkidle');
+    //await this.page.waitForLoadState('networkidle');
     return this.page.title();
   }
 
@@ -50,7 +49,7 @@ export class TenforceDashboardPage {
   }
 
   async verifyJobOpeningsSection() {
-    await this.page.waitForLoadState('networkidle');
+    //await this.page.waitForLoadState('networkidle');
     const text = this.page.getByText('Feel free to send your CV');
     await text.waitFor({ state: 'visible' });
   }
